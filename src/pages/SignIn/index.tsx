@@ -44,10 +44,6 @@ const SignIn: React.FC = () => {
           email: data.email,
           password: data.password,
         });
-        addToast({
-          type: 'info',
-          title: 'Nice',
-        });
         history.push('/dashboard');
       } catch (error) {
         if (error instanceof Yup.ValidationError) {

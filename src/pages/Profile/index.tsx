@@ -54,6 +54,7 @@ const Profile: React.FC = () => {
     async (data: ProfileFormData) => {
       try {
         formRef.current?.setErrors({});
+
         const schema = Yup.object().shape({
           name: Yup.string().required('Nome obrigatório'),
           email: Yup.string()
@@ -73,8 +74,8 @@ const Profile: React.FC = () => {
             })
             .oneOf([Yup.ref('password'), undefined], 'Confirmação incorreta'),
         });
-        await schema.validate(data, { abortEarly: false });
 
+        await schema.validate(data, { abortEarly: false });
         const {
           name,
           email,
